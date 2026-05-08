@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our 1 Week Galaxy 💫❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            height: 100vh;
+            overflow: hidden;
+            cursor: none;
+        }
+
+        /* Cosmic Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                        radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+                        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                        radial-gradient(1px 1px at 130px 80px, #ddd, transparent),
+                        linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            background-size: 200px 100px, 150px 120px, 100px 80px, 120px 90px, 100% 100%;
+            animation: starTwinkle 20s linear infinite;
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #ff6b9d, transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        /* Main Scene */
+        .galaxy-container {
+            perspective: 1000px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Floating 3D Hearts */
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart-3d {
+            position: absolute;
+            font-size: 2rem;
+            animation: float3D 8s infinite ease-in-out;
+            filter: drop-shadow(0 0 20px currentColor);
+        }
+
+        @keyframes float3D {
+            0%, 100% { 
+                transform: translateY(100vh) translateZ(-200px) rotateX(0deg) rotateY(0deg);
+                opacity: 0;
+            }
+            10%, 90% { opacity: 1; }
+            50% { 
+                transform: translateY(-20vh) translateZ(100px) rotateX(180deg) rotateY(360deg);
+                opacity: 1;
+            }
+        }
+
+        /* Main Title */
+        .cosmic-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            background: linear-gradient(45deg, #ff6b9d, #ffd93d, #6bcf9d, #4facfe);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            animation: cosmicGlow 3s ease-in-out infinite alternate, gradientShift 4s ease infinite;
+            transform-style: preserve-3d;
+            filter: drop-shadow(0 0 50px rgba(255,107,157,0.5));
+            margin-bottom: 20px;
+        }
+
+        @keyframes cosmicGlow {
+            from { filter: drop-shadow(0 0 20px rgba(255,107,157,0.5)); }
+            to { filter: drop-shadow(0 0 60px rgba(255,107,157,0.8)); }
+        }
+
+        /* Memory Timeline */
+        .timeline {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+            perspective: 1000px;
+        }
+
+        .memory-card {
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .memory-card:hover {
+            transform: translateZ(50px) rotateY(360deg) scale(1.2);
+            background: rgba(255,107,157,0.3);
+            box-shadow: 0 20px 40px rgba(255,107,157,0.4);
+        }
+
+        /* Love Meter */
+        .love-meter {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .meter-bg {
+            width: 300px;
+            height: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b9d, #ffd93d);
+            width: 100%;
+            border-radius: 10px;
+            animation: meterPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes meterPulse {
+            0%, 100% { transform: scaleX(1); }
+            50% { transform: scaleX(1.05); }
+        }
+
+        .meter-text {
+            color: white;
+            font-size: 1.5rem;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        /* Interactive Button */
+        .portal-button {
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            border: 3px solid rgba(255,255,255,0.5);
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .portal-button:hover::before {
+            left: 100%;
+        }
+
+        .portal-button:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 20px 60px rgba(255,107,157,0.6);
+            border-color: #ff6b9d;
+        }
+
+        /* Particle Explosion */
+        .particles {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ff6b9d;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cosmic-title { font-size: 3rem; }
+            .timeline { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="cursor" id="cursor"></div>
+    
+    <div class="galaxy-container">
+        <h1 class="cosmic-title" data-text="1 Week in Our Galaxy">1 Week in Our Galaxy 💫</h1>
+        
+        <div class="timeline">
+            <div class="memory-card" data-memory="1">😘</div>
+            <div class="memory-card" data-memory="2">🌹</div>
+            <div class="memory-card" data-memory="3">💌</div>
+            <div class="memory-card" data-memory="4">⭐</div>
+            <div class="memory-card" data-memory="5">💍</div>
+            <div class="memory-card" data-memory="6">🌙</div>
+            <div class="memory-card" data-memory="7">❤️</div>
+        </div>
+        
+        <div class="love-meter">
+            <div class="meter-bg">
+                <div class="meter-fill"></div>
+            </div>
+            <div class="meter-text">Love Level: ∞/∞</div>
+        </div>
+        
+        <button class="portal-button" onclick="openLovePortal()">✨ Enter Our Love Portal ✨</button>
+        
+        <div class="floating-hearts" id="hearts3D"></div>
+    </div>
+
+    <script>
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // 3D Floating Hearts
+        const heartsContainer = document.getElementById('hearts3D');
+        function create3DHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart-3d';
+            heart.innerHTML = ['💖','💕','💗','💝','🌟'][Math.floor(Math.random()*5)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.color = `hsl(${Math.random()*360}, 70%, 60%)`;
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 8000);
+        }
+        setInterval(create3DHeart, 800);
+
+        // Memory Cards
+        document.querySelectorAll('.memory-card').forEach((card, index) => {
+            card.onclick = () => {
+                const memories = [
+                    "Day 1: First smile that melted my heart 😍",
+                    "Day 2: That laugh I can't get enough of 😂",
+                    "Day 3: First late night talk 🌙",
+                    "Day 4: Your hand in mine ✋❤️",
+                    "Day 5: That look you give me 😘",
+                    "Day 6: Best hug ever 🥰",
+                    "Day 7: I knew you were my forever 💍"
+                ];
+                createParticles(card);
+                alert(`💫 MEMORY #${index+1} 💫\n\n${memories[index]}`);
+            };
+        });
+
+        // Particle Explosion
+        function createParticles(element) {
+            const rect = element.getBoundingClientRect();
+            const particles = document.createElement('div');
+            particles.className = 'particles';
+            document.body.appendChild(particles);
+
+            for(let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = rect.left + rect.width/2 + 'px';
+                particle.style.top = rect.top + rect.height/2 + 'px';
+                
+                const angle = (i / 30) * Math.PI * 2;
+                const velocity = 100 + Math.random() * 200;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+                
+                particle.animate([
+                    { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                    { transform: `translate(${vx}px, ${vy}px) scale(0)`, opacity: 0 }
+                ], {
+                    duration: 1000,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                }).onfinish = () => particle.remove();
+                
+                particles.appendChild(particle);
+            }
+            
+            setTimeout(() => particles.remove(), 1000);
+        }
+
+        // Love Portal
+        function openLovePortal() {
+            const portalMessages = [
+                "🚀 You've launched me to the stars! 🌌",
+                "💫 Our love defies gravity! ✨",
+                "🌙 You're my moon, my stars, my universe! 💖",
+                "⚡️ You electrified my heart forever! ⚡",
+                "🌈 Every day with you is pure magic! 🪄"
+            ];
+            
+            // Full screen explosion
+            createParticles(document.body);
+            
+            setTimeout(() => {
+                document.body.style.background = 'radial-gradient(circle at center, #ff6b9d, #000)';
+                setTimeout(() => {
+                    alert('💖💖💖 ' + portalMessages[Math.floor(Math.random()*5)] + ' 💖💖💖');
+                    document.body.style.background = '#000';
+                }, 500);
+            }, 300);
+        }
+
+        // Typing Effect for Title
+        const title = document.querySelector('.cosmic-title');
+        const originalText = title.textContent;
+        title.textContent = '';
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length) {
+                title.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        setTimeout(typeWriter, 1000);
+
+        // Continuous particle trail on mouse move
+        let trailTimeout;
+        document.addEventListener('mousemove', () => {
+            clearTimeout(trailTimeout);
+            trailTimeout = setTimeout(() => createParticles(cursor), 200);
+        });
+    </script>
+</body>
+</html>
